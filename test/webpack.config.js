@@ -10,10 +10,10 @@ module.exports = {
         loaders: [
             {
                 test: /\.font\.(js|json)$/,
-                loader: "style!css!" + require.resolve("../")
+                loader: ["style-loader","css-loader",{loader: require.resolve("../"), options: {types: 'ttf'}}]
             }, {
                 test: /\.(woff|eot|ttf|svg)$/,
-                loader: "url"
+                loader: "url-loader"
             }
         ]
     }
